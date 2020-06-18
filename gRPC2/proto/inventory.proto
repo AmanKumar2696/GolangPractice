@@ -1,0 +1,34 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+message AvailableRequest{
+    string ItemId = 1;
+    string ItemName = 2;
+    float Price = 3;
+    int64 Quantity = 4;
+}
+
+message AvailableResponse{
+    string ItemId = 1;
+    string ItemName = 2;
+    float Price = 3;
+    int64 Quantity = 4;
+     
+
+}
+message StatusResponse{
+    string Status=1;
+}
+
+message AllResponse{
+    repeated AvailableResponse inventory=1;
+}
+
+service AvailabilityService{
+    rpc AddItem(AvailableRequest) returns (StatusResponse);
+    rpc GetDetails(AvailableRequest) returns (AvailableResponse);
+    rpc RemoveItem(AvailableRequest) returns (StatusResponse);
+    rpc CheckInventory(StatusResponse) returns(AllResponse);
+}
+

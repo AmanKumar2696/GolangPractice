@@ -1,0 +1,2 @@
+# GolangPractice
+ Practice Golang concepts
