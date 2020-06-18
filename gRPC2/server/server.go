@@ -14,12 +14,12 @@ import (
 type Server struct{}
 
 func main() {
-	listener, err := net.Listen("tcp", ":8060")
+	listener, err := net.Listen("tcp", ":8060") //Listen on port 8060
 	if err != nil {
 		panic(err)
 	}
 	srv := grpc.NewServer()
-	proto.RegisterAvailabilityServiceServer(srv, &Server{})
+	proto.RegisterAvailabilityServiceServer(srv, &Server{}) //Bind service to the server
 	reflection.Register(srv)
 
 	if er := srv.Serve(listener); er != nil {
@@ -28,9 +28,10 @@ func main() {
 	fmt.Println("Working")
 }
 
+/*----------------Add Item--------------------------*/
 func (s *Server) AddItem(ctx context.Context, request *proto.AvailableRequest) (*proto.StatusResponse, error) {
-	db := db.Conn()
-	defer db.Close()
+	db := db.Conn()  //Connect to Database
+	defer db.Close() //Close db connection before function returns
 	insert, err := db.Query("INSERT INTO inventory VALUES(?, ?, ?, ?)",
 		request.GetItemId(), request.GetItemName(), request.GetPrice(), request.GetQuantity())
 	if err != nil {
@@ -42,6 +43,7 @@ func (s *Server) AddItem(ctx context.Context, request *proto.AvailableRequest) (
 
 }
 
+/*----------------Get Details of 1 Item-------------------*/
 func (s *Server) GetDetails(ctx context.Context, request *proto.AvailableRequest) (*proto.AvailableResponse, error) {
 	db := db.Conn()
 	defer db.Close()
@@ -53,6 +55,7 @@ func (s *Server) GetDetails(ctx context.Context, request *proto.AvailableRequest
 
 }
 
+/*-----------------Get complete inventory-----------*/
 func (s *Server) CheckInventory(ctx context.Context, request *proto.StatusResponse) (*proto.AllResponse, error) {
 	db := db.Conn()
 	defer db.Close()
@@ -72,6 +75,8 @@ func (s *Server) CheckInventory(ctx context.Context, request *proto.StatusRespon
 	return &proto.AllResponse{Inventory: result}, nil
 
 }
+
+/*--------------Remove Item-----------------*/
 func (s *Server) RemoveItem(ctx context.Context, request *proto.AvailableRequest) (*proto.StatusResponse, error) {
 	db := db.Conn()
 	defer db.Close()

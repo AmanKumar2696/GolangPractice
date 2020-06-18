@@ -14,7 +14,7 @@ import (
 )
 
 func Connection() proto.AvailabilityServiceClient {
-	conn, err := grpc.Dial("localhost:8060", grpc.WithInsecure())
+	conn, err := grpc.Dial("localhost:8060", grpc.WithInsecure()) //connect to GRPC server
 	if err != nil {
 		panic(err)
 	}
@@ -23,12 +23,12 @@ func Connection() proto.AvailabilityServiceClient {
 
 func AddItemHandler(ctx *gin.Context) {
 	client := Connection()
-	newItem := proto.AvailableRequest{}
-	reqBody, err := ioutil.ReadAll(ctx.Request.Body)
+	newItem := proto.AvailableRequest{}              //create empty message
+	reqBody, err := ioutil.ReadAll(ctx.Request.Body) //read request body
 	if err != nil {
 		panic(err)
 	}
-	result := json.Unmarshal(reqBody, &newItem)
+	result := json.Unmarshal(reqBody, &newItem) //Unmarshal json to message object
 	fmt.Println(result)
 	if response, err := client.AddItem(ctx, &newItem); err == nil {
 		ctx.JSON(http.StatusOK, gin.H{
@@ -42,10 +42,10 @@ func AddItemHandler(ctx *gin.Context) {
 
 func GetDetailsHandler(ctx *gin.Context) {
 	client := Connection()
-	id := ctx.Param("id")
+	id := ctx.Param("id") //get ItemID
 
-	req := &proto.AvailableRequest{ItemId: id}
-	if response, err := client.GetDetails(ctx, req); err == nil {
+	req := &proto.AvailableRequest{ItemId: id}                    //create message object
+	if response, err := client.GetDetails(ctx, req); err == nil { //Call Server method
 		ctx.JSON(http.StatusOK, gin.H{
 			"result": response,
 		})

@@ -12,7 +12,7 @@ func main() {
 	g.POST("/additem", inventory.AddItemHandler)
 	g.GET("/getitem/:id", inventory.GetDetailsHandler)
 	g.GET("/getall/:status", inventory.CheckInventoryHandler)
-	g.POST("/remove/:id", inventory.RemoveItemHandler)
+	g.DELETE("/remove/:id", inventory.RemoveItemHandler)
 	if err := g.Run(":8080"); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
 	}
