@@ -1,74 +1,23 @@
-Name:         custom1
-Namespace:    default
-Labels:       <none>
-Annotations:  API Version:  cilium.io/v2
-Kind:         CiliumNetworkPolicy
-Metadata:
-  Creation Timestamp:  2020-06-23T07:59:56Z
-  Generation:          2
-  Managed Fields:
-    API Version:  cilium.io/v2
-    Fields Type:  FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          .:
-          f:kubectl.kubernetes.io/last-applied-configuration:
-      f:spec:
-        .:
-        f:egress:
-        f:endpointSelector:
-          .:
-          f:matchLabels:
-            .:
-            f:class:
-            f:org:
-    Manager:      kubectl
-    Operation:    Update
-    Time:         2020-06-23T08:27:40Z
-    API Version:  cilium.io/v2
-    Fields Type:  FieldsV1
-    fieldsV1:
-      f:status:
-        .:
-        f:nodes:
-          .:
-          f:minikube:
-            .:
-            f:enforcing:
-            f:lastUpdated:
-            f:localPolicyRevision:
-            f:ok:
-    Manager:         cilium-agent
-    Operation:       Update
-    Time:            2020-06-23T11:52:52Z
-  Resource Version:  11922
-  Self Link:         /apis/cilium.io/v2/namespaces/default/ciliumnetworkpolicies/fqdn
-  UID:               adb7a2aa-0044-4c85-bc91-98ffabe25647
-Spec:
-  Egress:
-    To FQD Ns:
-      Match Pattern:  *.twitter.com
-    To Endpoints:
-      Match Labels:
-        k8s:io.kubernetes.pod.namespace:  kube-system
-        k8s:k8s-app:                      kube-dns
-    To Ports:
-      Ports:
-        Port:      53
-        Protocol:  ANY
-      Rules:
-        Dns:
-          Match Pattern:  *
-  Endpoint Selector:
-    Match Labels:
-      Class:  mediabot
-      Org:    empire
-Status:
-  Nodes:
-    Minikube:
-      Enforcing:              true
-      Last Updated:           2020-06-23T11:52:52.757688377Z
-      Local Policy Revision:  2
-      Ok:                     true
-Events:                       <none>
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "custom1"
+spec:
+  endpointSelector:
+    matchLabels:
+      org: empire
+      class: mediabot
+  egress:
+  - toFQDNs:
+    - matchPattern: "about.google.com" 
+  - toEndpoints:
+    - matchLabels:
+        "k8s:io.kubernetes.pod.namespace": kube-system
+        "k8s:k8s-app": kube-dns
+    toPorts:
+    - ports:
+      - port: "53"
+        protocol: ANY
+      rules:
+        dns:
+        - matchPattern: "*"
