@@ -77,6 +77,7 @@ func (s *Server) CheckInventory(ctx context.Context, request *proto.StatusRespon
 }
 
 /*--------------Remove Item-----------------*/
+
 func (s *Server) RemoveItem(ctx context.Context, request *proto.AvailableRequest) (*proto.StatusResponse, error) {
 	db := db.Conn()
 	defer db.Close()
@@ -86,4 +87,18 @@ func (s *Server) RemoveItem(ctx context.Context, request *proto.AvailableRequest
 	}
 	del.Close()
 	return &proto.StatusResponse{Status: "Item Removed"}, nil
+}
+
+/*---------------Update-----------------*/
+
+func (s *Server) UpdateInventory(ctx context.Context, request *proto.AvailableRequest) (*proto.StatusResponse, error) {
+	db := db.Conn()
+	defer db.Close()
+	update, err := db.Query("UPDATE inventory SET ItemName = ?, Price = ?, Quantity = ? WHERE ItemId = ?",
+		request.GetItemName(), request.GetPrice(), request.GetQuantity(), request.GetItemId())
+	if err != nil {
+		fmt.Println(err)
+	}
+	update.Close()
+	return &proto.StatusResponse{Status: "Item Updated"}, nil
 }

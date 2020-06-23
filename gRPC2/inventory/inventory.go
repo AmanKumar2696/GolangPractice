@@ -40,6 +40,24 @@ func AddItemHandler(ctx *gin.Context) {
 
 }
 
+func UpdateItemHandler(ctx *gin.Context) {
+	client := Connection()
+	updItem := proto.AvailableRequest{}
+	reqBody, err := ioutil.ReadAll(ctx.Copy().Request.Body)
+	if err != nil {
+		panic(err)
+	}
+	result := json.Unmarshal(reqBody, &updItem)
+	fmt.Println(result)
+	if response, err := client.UpdateInventory(ctx, &updItem); err == nil {
+		ctx.JSON(http.StatusOK, gin.H{
+			"result": fmt.Sprint(response.Status),
+		})
+	} else {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+	}
+}
+
 func GetDetailsHandler(ctx *gin.Context) {
 	client := Connection()
 	id := ctx.Param("id") //get ItemID

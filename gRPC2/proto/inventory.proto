@@ -14,8 +14,6 @@ message AvailableResponse{
     string ItemName = 2;
     float Price = 3;
     int64 Quantity = 4;
-     
-
 }
 message StatusResponse{
     string Status=1;
@@ -30,5 +28,6 @@ service AvailabilityService{
     rpc GetDetails(AvailableRequest) returns (AvailableResponse);
     rpc RemoveItem(AvailableRequest) returns (StatusResponse);
     rpc CheckInventory(StatusResponse) returns(AllResponse);
+    rpc UpdateInventory(AvailableRequest) returns(StatusResponse);
 }
 

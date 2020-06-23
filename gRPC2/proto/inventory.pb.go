@@ -291,7 +291,7 @@ var file_inventory_proto_rawDesc = []byte{
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x09, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74,
 	0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x2e, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x52, 0x09, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x32, 0x8c,
+	0x6e, 0x73, 0x65, 0x52, 0x09, 0x69, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79, 0x32, 0xcf,
 	0x02, 0x0a, 0x13, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x53,
 	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x39, 0x0a, 0x07, 0x41, 0x64, 0x64, 0x49, 0x74, 0x65,
 	0x6d, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61,
@@ -308,8 +308,13 @@ var file_inventory_proto_rawDesc = []byte{
 	0x12, 0x3b, 0x0a, 0x0e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f,
 	0x72, 0x79, 0x12, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75,
 	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a, 0x12, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x2e, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a,
-	0x07, 0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x2e, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x41, 0x0a,
+	0x0f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x65, 0x6e, 0x74, 0x6f, 0x72, 0x79,
+	0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x61, 0x69, 0x6c, 0x61, 0x62,
+	0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x42, 0x09, 0x5a, 0x07, 0x2e, 0x3b, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -337,12 +342,14 @@ var file_inventory_proto_depIdxs = []int32{
 	0, // 2: proto.AvailabilityService.GetDetails:input_type -> proto.AvailableRequest
 	0, // 3: proto.AvailabilityService.RemoveItem:input_type -> proto.AvailableRequest
 	2, // 4: proto.AvailabilityService.CheckInventory:input_type -> proto.StatusResponse
-	2, // 5: proto.AvailabilityService.AddItem:output_type -> proto.StatusResponse
-	1, // 6: proto.AvailabilityService.GetDetails:output_type -> proto.AvailableResponse
-	2, // 7: proto.AvailabilityService.RemoveItem:output_type -> proto.StatusResponse
-	3, // 8: proto.AvailabilityService.CheckInventory:output_type -> proto.AllResponse
-	5, // [5:9] is the sub-list for method output_type
-	1, // [1:5] is the sub-list for method input_type
+	0, // 5: proto.AvailabilityService.UpdateInventory:input_type -> proto.AvailableRequest
+	2, // 6: proto.AvailabilityService.AddItem:output_type -> proto.StatusResponse
+	1, // 7: proto.AvailabilityService.GetDetails:output_type -> proto.AvailableResponse
+	2, // 8: proto.AvailabilityService.RemoveItem:output_type -> proto.StatusResponse
+	3, // 9: proto.AvailabilityService.CheckInventory:output_type -> proto.AllResponse
+	2, // 10: proto.AvailabilityService.UpdateInventory:output_type -> proto.StatusResponse
+	6, // [6:11] is the sub-list for method output_type
+	1, // [1:6] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -439,6 +446,7 @@ type AvailabilityServiceClient interface {
 	GetDetails(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error)
 	RemoveItem(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*StatusResponse, error)
 	CheckInventory(ctx context.Context, in *StatusResponse, opts ...grpc.CallOption) (*AllResponse, error)
+	UpdateInventory(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*StatusResponse, error)
 }
 
 type availabilityServiceClient struct {
@@ -485,12 +493,22 @@ func (c *availabilityServiceClient) CheckInventory(ctx context.Context, in *Stat
 	return out, nil
 }
 
+func (c *availabilityServiceClient) UpdateInventory(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, "/proto.AvailabilityService/UpdateInventory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AvailabilityServiceServer is the server API for AvailabilityService service.
 type AvailabilityServiceServer interface {
 	AddItem(context.Context, *AvailableRequest) (*StatusResponse, error)
 	GetDetails(context.Context, *AvailableRequest) (*AvailableResponse, error)
 	RemoveItem(context.Context, *AvailableRequest) (*StatusResponse, error)
 	CheckInventory(context.Context, *StatusResponse) (*AllResponse, error)
+	UpdateInventory(context.Context, *AvailableRequest) (*StatusResponse, error)
 }
 
 // UnimplementedAvailabilityServiceServer can be embedded to have forward compatible implementations.
@@ -508,6 +526,9 @@ func (*UnimplementedAvailabilityServiceServer) RemoveItem(context.Context, *Avai
 }
 func (*UnimplementedAvailabilityServiceServer) CheckInventory(context.Context, *StatusResponse) (*AllResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckInventory not implemented")
+}
+func (*UnimplementedAvailabilityServiceServer) UpdateInventory(context.Context, *AvailableRequest) (*StatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateInventory not implemented")
 }
 
 func RegisterAvailabilityServiceServer(s *grpc.Server, srv AvailabilityServiceServer) {
@@ -586,6 +607,24 @@ func _AvailabilityService_CheckInventory_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AvailabilityService_UpdateInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailabilityServiceServer).UpdateInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.AvailabilityService/UpdateInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailabilityServiceServer).UpdateInventory(ctx, req.(*AvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _AvailabilityService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.AvailabilityService",
 	HandlerType: (*AvailabilityServiceServer)(nil),
@@ -605,6 +644,10 @@ var _AvailabilityService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckInventory",
 			Handler:    _AvailabilityService_CheckInventory_Handler,
+		},
+		{
+			MethodName: "UpdateInventory",
+			Handler:    _AvailabilityService_UpdateInventory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
