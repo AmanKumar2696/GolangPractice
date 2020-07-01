@@ -8,9 +8,6 @@ spec:
     matchLabels:
       app: hubrest
   ingress:
-  - fromEndpoints:
-    - matchLabels:
-        app: hubrest
     toPorts:
     - ports:
       - port: "80"
@@ -18,4 +15,4 @@ spec:
       rules:
         http:
         - method: "GET"
-          path: "/users/update"
+          path: "/user"
