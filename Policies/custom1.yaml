@@ -1,4 +1,3 @@
-  
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 description: "L7 policy to restrict access to specific HTTP call"
@@ -11,7 +10,7 @@ spec:
   ingress:
   - fromEndpoints:
     - matchLabels:
-        app: {}
+        app: hubrest
     toPorts:
     - ports:
       - port: "80"
