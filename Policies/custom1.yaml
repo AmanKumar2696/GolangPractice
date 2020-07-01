@@ -1,23 +1,21 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
+description: "L7 policy to restrict access to specific HTTP call"
 metadata:
-  name: "custom1"
+  name: "rule1"
 spec:
   endpointSelector:
     matchLabels:
-      org: empire
-      class: mediabot
-  egress:
-  - toFQDNs:
-    - matchPattern: "*.google.com" 
-  - toEndpoints:
+      app: hubrest
+  ingress:
+  - fromEndpoints:
     - matchLabels:
-        "k8s:io.kubernetes.pod.namespace": kube-system
-        "k8s:k8s-app": kube-dns
+        app: hubrest
     toPorts:
     - ports:
-      - port: "53"
-        protocol: ANY
+      - port: "80"
+        protocol: TCP
       rules:
-        dns:
-        - matchPattern: "*"
+        http:
+        - method: "GET"
+          path: "/user"
