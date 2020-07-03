@@ -1,0 +1,23 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Custom policy to allow access to only GetName and GetLocation method"
+metadata:
+  name: "gcloudpolicy"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: cc-door-mgr 
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: public-terminal
+    toPorts:
+    - ports:
+      - port: "50051"
+        protocol: TCP
+      rules:
+        http:
+        - method: "POST" 
+          path: "/cloudcity.DoorManager/GetName"
+        - method: "POST" 
+          path: "/cloudcity.DoorManager/GetLocation"
