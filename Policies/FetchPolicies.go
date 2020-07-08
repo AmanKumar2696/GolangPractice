@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os/exec"
+)
 
 func main() {
-	fmt.Println("hello")
+	cmd, _ := exec.Command("bash", "script.sh").Output()
+	fmt.Println(string(cmd))
+
 }
