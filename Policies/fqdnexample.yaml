@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mediabot3
+  labels:
+    org: empire
+    class: mediabot3
+spec:
+  containers:
+  - name: mediabot
+    image: docker.io/tgraf/netperf
