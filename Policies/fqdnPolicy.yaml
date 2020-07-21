@@ -9,7 +9,7 @@ spec:
       class: mediabot3
   egress:
   - toFQDNs:
-    - matchPattern: "*.twitter.com"  
+    - matchPattern: "www.google.com/*"  
   - toEndpoints:
     - matchLabels:
         "k8s:io.kubernetes.pod.namespace": kube-system
