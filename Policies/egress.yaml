@@ -1,0 +1,12 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "denyall"
+spec:
+  endpointSelector:
+    matchLabels:
+      org: empire
+      class: tiefighter
+  role: restricted
+  egress:
+  - {}
