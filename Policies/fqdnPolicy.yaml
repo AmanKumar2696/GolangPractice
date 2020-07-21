@@ -9,14 +9,14 @@ spec:
       class: mediabot3
   egress:
   - toFQDNs:
-    - matchPattern: "___.twitter.com"  
+    - matchPattern: "*.twitter.com"  
   - toEndpoints:
     - matchLabels:
         "k8s:io.kubernetes.pod.namespace": kube-system
         "k8s:k8s-app": kube-dns
     toPorts:
     - ports:
-      - port: "53"
+      - port: "8080"
         protocol: ANY
       rules:
         dns:
