@@ -6,6 +6,7 @@ spec:
   endpointSelector:
     matchLabels:
       org: alliance
+      class: xwing
   egress:
   - toServices:
     - k8sService:
