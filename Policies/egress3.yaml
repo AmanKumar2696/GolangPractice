@@ -1,12 +1,13 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: "denyall2"
+  name: "allow"
 spec:
   endpointSelector:
     matchLabels:
       org: alliance
-  role: restricted
   egress:
-  - toEndpoints:
-    - {}
+  - toServices:
+    - k8sService:
+        serviceName: deathstar
+        namespace: default
