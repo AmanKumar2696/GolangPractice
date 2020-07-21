@@ -8,4 +8,5 @@ spec:
       org: alliance
   role: restricted
   egress:
-  - {}
+  - toEndpoints:
+    - {}
