@@ -5,8 +5,8 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      org: alliance
-      class: xwing
+      org: empire
+      class: tiefighter
   role: restricted
   egress:
   - {}
