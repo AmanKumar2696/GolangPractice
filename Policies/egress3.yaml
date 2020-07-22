@@ -6,9 +6,12 @@ spec:
   endpointSelector:
     matchLabels:
       org: alliance
-      class: xwing
   egress:
   - toServices:
-    - k8sService:
-        serviceName: deathstar
-        namespace: default
+      - {}
+  - toPorts:
+      - ports: 
+          - port: "80"
+            protocol: TCP
+          - port: "53"
+            protocol: UDP
