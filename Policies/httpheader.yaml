@@ -21,4 +21,4 @@ spec:
         - method: "POST"
           path: "/v1/request-landing"
           headers:
-          - 'Auth: jedi'
+          - 'Auth: true'
