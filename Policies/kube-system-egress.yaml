@@ -6,4 +6,6 @@ spec:
   endpointSelector:
     {}
   egress:
-    {}
+  - toEndpoints:
+    - matchLabels:
+        {}
