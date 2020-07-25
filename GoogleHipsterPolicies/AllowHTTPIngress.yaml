@@ -10,9 +10,3 @@ spec:
   ingress:
     - toServices:
         - {}
-    - toPorts:
-        - ports:
-            - port: "80"
-              protocol: TCP
-            - port: "53"
-              protocol: UDP
