@@ -10,7 +10,7 @@ spec:
   ingress:
     - toServices:
         - {}
-    -toPorts:
+    - toPorts:
         - ports:
             - port: "80"
               protocol: TCP
