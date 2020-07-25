@@ -8,8 +8,11 @@ spec:
     matchLabels:
       app: frontend
   ingress:
-  - fromEndpoints:
-    - {}
-  egress:
-  - toEndpoints:
-    - {}
+    - toServices:
+        - {}
+    -toPorts:
+        - ports:
+            - port: "80"
+              protocol: TCP
+            - port: "53"
+              protocol: UDP
