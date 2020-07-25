@@ -1,0 +1,15 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Policy to allow ingress HTTP to frontend"
+metadata:
+  name: "allow-ingress"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: frontend
+  egress:
+  - fromEndpoints:
+    - matchLabels:
+        app: productcatalogservice
+  
+  
