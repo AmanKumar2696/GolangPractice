@@ -7,9 +7,8 @@ spec:
   endpointSelector:
     matchLabels:
       app: frontend
-  egress:
+  ingress:
   - fromEndpoints:
-    - matchLabels:
-        app: productcatalogservice
+    - {}
   
   
