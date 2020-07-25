@@ -1,0 +1,22 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "fqdn"
+spec:
+  endpointSelector:
+    matchLabels:
+      org: empire
+      class: mediabot
+  egress:
+  - toFQDNs:
+    - matchPattern: "*.twitter.com" 
+  - toEndpoints:
+    - matchLabels:
+        {}
+    toPorts:
+    - ports:
+      - port: "53"
+        protocol: ANY
+      rules:
+        dns:
+        - matchPattern: "*"
