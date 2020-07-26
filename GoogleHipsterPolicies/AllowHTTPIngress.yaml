@@ -6,13 +6,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: frontend
+      app: frontend-external
   ingress:
     - toServices:
         - {}
-    -toPorts:
-        - ports:
-            - port: "80"
-              protocol: TCP
-            - port: "53"
-              protocol: UDP
