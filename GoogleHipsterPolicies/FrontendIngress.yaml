@@ -6,10 +6,10 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: frontend
+      app: frontend-external
   ingress:
-  - fromEndpoints:
-    - matchLabels:
-        app: frontend-external
-        app: loadgenerator
+    - toPorts:
+      - ports:
+        - port: "80"
+          protocol: TCP
       
