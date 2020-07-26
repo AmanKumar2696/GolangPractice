@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Allow ingress to CurrencyService from only frontend"
+metadata:
+  name: "currency-frontend"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: currencyservice
+  ingress:
+    - fromEndpoints:
+      - matchLabels:
+          app: frontend-external

@@ -9,4 +9,8 @@ spec:
       app: frontend-external
   ingress:
     - toServices:
+<<<<<<< HEAD
         - {}
+=======
+        - {}
+>>>>>>> 303f088d8a3d7991b6a4b5a782c4f9ff68199e90
