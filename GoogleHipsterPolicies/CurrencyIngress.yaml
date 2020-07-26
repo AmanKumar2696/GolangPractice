@@ -11,3 +11,4 @@ spec:
     - fromEndpoints:
       - matchLabels:
           app: frontend-external
+          app: frontend
