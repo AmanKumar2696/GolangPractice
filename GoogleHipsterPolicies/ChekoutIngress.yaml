@@ -1,0 +1,14 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Deny all ingress to checkout except from frontend"
+metadata:
+  name: "checkout-frontend"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: checkoutservice
+  ingress:
+    - fromEndpoints:
+      - matchLabels:
+          app: frontend-external
+		  app: frontend
