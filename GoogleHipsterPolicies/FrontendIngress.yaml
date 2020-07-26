@@ -6,8 +6,9 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-	  app: frontend
+      app: frontend
   ingress:
-    - fromEndpoints:
-	  - matchLabels:
-		  app: frontend-external
+  - fromEndpoints:
+    - matchLabels:
+        app: frontend-external
+      
