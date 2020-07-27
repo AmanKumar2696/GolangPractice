@@ -1,11 +1,11 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
-description: "Deny all egress from checkout service"
+description: "Deny all egress from currency service"
 metadata:
-  name: "checkout-deny-all"
+  name: "currency-deny-all"
 spec:
   endpointSelector:
     matchLabels:
-      app: checkoutservice
+      app: currencyservice
   egress:
   - {}
