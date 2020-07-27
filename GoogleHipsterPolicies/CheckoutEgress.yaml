@@ -1,0 +1,11 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Deny all egress from checkout service"
+metadata:
+  name: "checkout-deny-all"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: checkoutservice
+  egress:
+  - {}
