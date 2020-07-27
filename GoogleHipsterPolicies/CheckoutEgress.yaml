@@ -9,5 +9,3 @@ spec:
       app: checkoutservice
   egress:
   - {}
-  ingress:
-  - {}
