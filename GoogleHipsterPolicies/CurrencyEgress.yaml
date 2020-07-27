@@ -9,5 +9,3 @@ spec:
       app: currencyservice
   egress:
   - {}
-  ingress:
-  - {}
