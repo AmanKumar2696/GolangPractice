@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Deny all egress from currency service"
+metadata:
+  name: "currency-deny-all"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: currencyservice
+  egress:
+  - {}
+  ingress:
+  - {}
