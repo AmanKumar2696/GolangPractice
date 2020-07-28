@@ -6,8 +6,8 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: emailservice
       app: paymentservice
+      app: emailservice
   egress:
   - {}
   ingress:
