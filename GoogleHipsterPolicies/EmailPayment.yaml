@@ -1,0 +1,14 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "Deny ingress of payment and email services"
+metadata:
+  name: "email-payment-deny-all"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: emailservice
+	  app: paymentservice
+  egress:
+  - {}
+  ingress:
+  - {}
