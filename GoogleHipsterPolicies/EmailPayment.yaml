@@ -7,7 +7,7 @@ spec:
   endpointSelector:
     matchLabels:
       app: emailservice
-	  app: paymentservice
+      app: paymentservice
   egress:
   - {}
   ingress:
